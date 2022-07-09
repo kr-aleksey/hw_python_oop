@@ -49,9 +49,9 @@ class Training:
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
-        return InfoMessage(self.__class__.__name__, 
+        return InfoMessage(self.__class__.__name__,
                            self.duration,
-                           self.get_distance(), 
+                           self.get_distance(),
                            self.get_mean_speed(),
                            self.get_spent_calories())
 
@@ -119,7 +119,8 @@ class Swimming(Training):
 
     def get_spent_calories(self) -> float:
         mean_speed = self.get_mean_speed()
-        return ((mean_speed + self.COEFF_SWM_1) * self.COEFF_SWM_2 * self.weight)
+        return ((mean_speed + self.COEFF_SWM_1) * self.COEFF_SWM_2
+                * self.weight)
 
     def get_mean_speed(self) -> float:
         return (self.length_pool * self.count_pool / self.M_IN_KM
@@ -152,5 +153,5 @@ if __name__ == '__main__':
     ]
 
     for workout_type, data in packages:
-        training = read_package(workout_type, data) 
+        training = read_package(workout_type, data)
         main(training)
